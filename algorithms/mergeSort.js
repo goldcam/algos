@@ -22,7 +22,7 @@ function mergeSort (unsortedArr) {
 
     if(unsortedArr.length <= 1) return unsortedArr;
 
-    const mid = Math.floor(unsortedArr / 2), 
+    const mid = Math.floor(unsortedArr.length / 2), 
           left =  unsortedArr.slice(0, mid), 
           right = unsortedArr.slice(mid);
 
