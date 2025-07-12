@@ -1,6 +1,28 @@
 // inputArray.sort((a, b) => a - b);
 // return inputArray[k - 1];
 
+const quickSort = arr => {
+  if (arr.length <= 1) return arr;
+
+
+  const pivot = arr[0],
+    left = [],
+    right = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    arr[i] < pivot ? left.push(arr[i]) : right.push(arr[i])
+  }
+
+
+
+  return [...quickSort(left), pivot, ...quickSort(right)]
+}
+
+
+const sortThisArr = quickSort([1999, 212, 4212, 5, 2111, 2, 5, 1, 77, 1097])
+
+console.log({ sortThisArr })
+
 function partition(arr, low, high) {
     let pivot = arr[low];
     let i = low;
@@ -75,3 +97,24 @@ function partition(arr, low, high) {
   }
   
   console.log(countInversions([4, 2, 1, 3])); // Prints [ [ 1, 2, 3, 4 ], 4 ]
+
+
+
+
+  const quickSort2 = arr => {
+    if(arr.length <= 1) return arr;
+
+    const pivot = arr[0], left = [], right = [];
+
+   for (let i =1; i< arr.length; i++) {
+    arr[i] < pivot ? left.push(arr[i]) : right.push(arr[i])
+   }
+
+    return [...quickSort2(left), pivot, ...quickSort2(right)]
+
+
+  }
+
+const test5 = quickSort2([3,4,2,33,455,62,1,555,6,777]);
+
+console.log({test5});
