@@ -43,7 +43,41 @@ var lengthOfLongestSubstring = function (s) {
     // return res;
 };
 
-const lls = lengthOfLongestSubstring("abcabcbb");
+const lls = lengthOfLongestSubstring("abcabcbb"); 
 // const lls = lengthOfLongestSubstring("");
-console.log({lls})
+console.log({lls}) // -> 3
+
+
+
+
+function longestSubstringWithKDistinctCharacters(s, K) {
+    let l = 0, maxCount = 0, map = new Map();
+    for (let i = 0; i < s.length; i++) {
+        const rightChar = s[i], leftChar = s[l];
+        
+        if(map.has(rightChar)) {
+            map.set(rightChar, map.get(rightChar) + 1)
+        } else {
+            map.set(rightChar, 1);
+        }
+        if(map.size > K) {
+             map.set(leftChar, map.get(leftChar) - 1)
+             if(map.get(leftChar) === 0){
+                map.delete(leftChar);
+            }
+            l++;
+        }
+        maxCount = Math.max(maxCount, i - l + 1);
+
+    }
+
+    return maxCount;    
+}
+
+// Example usage:
+console.log(longestSubstringWithKDistinctCharacters("acaabcc", 2)); // Expected output: 4
+console.log(longestSubstringWithKDistinctCharacters("abaccc", 2)); // Expected output: 4
+console.log(longestSubstringWithKDistinctCharacters("aa", 1)); // Expected output: 2
+console.log(longestSubstringWithKDistinctCharacters("abaccc", 2)); // Expected output: 4
+console.log(longestSubstringWithKDistinctCharacters("abaccccc", 2)); // Expected output: 6
 
