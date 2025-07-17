@@ -60,7 +60,7 @@ function longestSubstringWithKDistinctCharacters(s, K) {
         } else {
             map.set(rightChar, 1);
         }
-        if(map.size > K) {
+        while(map.size > K) {
              map.set(leftChar, map.get(leftChar) - 1)
              if(map.get(leftChar) === 0){
                 map.delete(leftChar);
