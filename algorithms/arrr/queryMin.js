@@ -8,7 +8,7 @@ function queryMin(arr, Ls, Rs) {
             precalc[l][r] = minVal;
         }
     }
-    console.log(precalc);
+    // console.log(precalc);
     const res = [];
 
     for (let i = 0; i < Ls.length; ++i) {
