@@ -1,6 +1,26 @@
 function solution(operations) {
-    // TODO: Your solution
-    return [];
+    // TODO: Your solution    
+    const heap = new MaxHeap();
+    const maxOpps = [];
+    for(let op of operations){
+        const action =  op[0];
+        switch(action) {
+            case 'Add':
+                const val = parseInt(op[1]);
+                heap.add(val);                
+                break;
+            case 'Max':
+                maxOpps.push(heap.peek());
+                break;
+            case 'RemoveMax':
+                heap.poll()
+                break;
+            default:
+                break;
+        }
+    }
+    
+    return maxOpps;
 }
 
 class MaxHeap {
